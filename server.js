@@ -14,7 +14,7 @@ app.use(express.json({ limit: '100mb' }));
 app.use(express.urlencoded({ limit: '100mb', extended: true }));
 
 // Khởi tạo Google AI với cấu hình an toàn
-const API_KEY = "AIzaSyDV3MBD4eUNDvhaoz1t5sTtTym9pdMugEY"; 
+const API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 /**
