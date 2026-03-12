@@ -6,7 +6,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 // Cấu hình môi trường và bảo mật
 dotenv.config();
 const app = express();
-const PORT = 4000;
+const port = process.env.PORT || 4000;
 
 // Cấu hình giới hạn dữ liệu cho hình ảnh độ phân giải cao
 app.use(cors());
@@ -103,11 +103,6 @@ app.post("/api/v1/medical/analyze", async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`
-    ====================================================
-    🚀 MEDMIND PRO ENTERPRISE SERVER IS ACTIVE
-    📍 Port: ${PORT} | Mode: Clinical Expert System
-    ====================================================
-    `);
+app.listen(port, () => {
+  console.log(`Server đang chạy ở port ${port}`);
 });
